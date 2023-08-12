@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarTogglerDemo03"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <a class="navbar-brand" href="/">NoteBook</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <% if(user){ %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/starred">Starred</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true"><%= user.email %></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                <!-- <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li> -->
+            </ul>
+            <!-- <form class="d-flex input-group w-auto">
+                <input type="search" action="/notes/search?" method="get" name="searchBox" class="form-control"
+                       placeholder="Type query" aria-label="Search" />
+                <button class="btn btn-outline-primary" type="button" data-mdb-ripple-color="dark">
+                    Search
+                </button>
+            </form> -->
+        </div>
+
+        <form class="d-flex" role="search" action="/search?" method="get">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchBox">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+    <% } else { %>
+    <li class="nav-item">
+        <a class="nav-link" href="/login">Log In</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/signup">Register</a>
+    </li>
+    <% } %>
+
+</nav>

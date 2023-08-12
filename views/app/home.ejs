@@ -1,0 +1,168 @@
+<div id="headContainer"></div>
+<%- include('../includes/head.ejs') %>
+<!-- <script>
+        // Fetch the navbar.html content and insert it into the container
+        fetch('head.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('headContainer').innerHTML = html;
+            });
+    </script> -->
+
+</head>
+
+<body>
+    <div id="navbarContainer"></div>
+    <%- include('../includes/navbar.ejs') %>
+    <!-- <script>
+            // Fetch the navbar.html content and insert it into the container
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('navbarContainer').innerHTML = html;
+                });
+        </script> -->
+
+
+    <section>
+        <h1>Welcome, <%= user.name  %>!</h1>
+        <h4>Take a Note <a href="/add"><button type="button" class="btn btn-primary">Add</button></a>
+        </h4>
+
+
+        <div class="container justify-content-center">
+            <hr>
+            <div class="row">
+                <% notes.forEach((note) => {  %>
+                <div class="col-12 col-md-4 col-lg-3 col-sm-6">
+                    <div class="card">
+                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top"
+                             alt="Fissure in Sandstone" />
+                        <div class="card-body">
+                            <p class="card-title"><%= note.noteId %>
+                                <% if(note.starred){ %>
+                                <i class="fa-solid fa-star"></i>
+                                <% }else{ %>
+                                <i class="fa-regular fa-star"></i>
+                                <% } %>
+                            </p>
+
+                            <h5 class="card-title"><%= note.noteTitle %></h5>
+
+                            <h5 class="card-title"><%= note.noteSubTitle %></h5>
+                            <p class="card-text"><%= note.noteBody %></p>
+                            <% if(note.starred){ %>
+                            <a href="/unStar/<%= note.noteId %>" class="btn btn-primary">Unstar</a>
+                            <% } else {%>
+                            <a href="/starred/<%= note.noteId %>" class="btn btn-primary">Star</a>
+                            <% } %>
+                            <hr>
+                            <div class="center">
+                                <a href="/delete/<%= note.noteId %>" class="card-link">Delete</a>
+                                <a href="edit/<%= note.noteId %>" class="card-link">Update</a>
+                            </div>
+
+                            <div class="card-footer text-muted"><%= note.iAt %></div>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+                <!-- <div class=" col-12 col-md-4 col-lg-3 col-sm-6">
+                                    <div class="card">
+                                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp"
+                                             class="card-img-top" alt="Fissure in Sandstone" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and
+                                                make up the
+                                                bulk
+                                                of the card's content.</p>
+                                            <a href="#!" class="btn btn-primary">Button</a>
+                                            <hr>
+                                            <div class="center">
+                                                <a href="#" class="card-link">Delete</a>
+                                                <a href="updateNote.html" class="card-link">Update</a>
+                                            </div>
+
+                                            <div class="card-footer text-muted">2 days ago</div>
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <div class="col-12 col-md-4 col-lg-3 col-sm-6">
+                                <div class="card">
+                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp"
+                                         class="card-img-top" alt="Fissure in Sandstone" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make
+                                            up the
+                                            bulk
+                                            of the card's content.</p>
+                                        <a href="#!" class="btn btn-primary">Button</a>
+                                        <hr>
+                                        <div class="center">
+                                            <a href="#" class="card-link">Delete</a>
+                                            <a href="updateNote.html" class="card-link">Update</a>
+                                        </div>
+
+                                        <div class="card-footer text-muted">2 days ago</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-4 col-lg-3 col-sm-6">
+                                <div class="card">
+                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp"
+                                         class="card-img-top" alt="Fissure in Sandstone" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make
+                                            up the
+                                            bulk
+                                            of the card's content.</p>
+                                        <a href="#!" class="btn btn-primary">Button</a>
+                                        <hr>
+                                        <div class="center">
+                                            <a href="#" class="card-link">Delete</a>
+                                            <a href="updateNote.html" class="card-link">Update</a>
+                                        </div>
+
+                                        <div class="card-footer text-muted">2 days ago</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-4 col-lg-3 col-sm-6">
+                                <div class="card">
+                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp"
+                                         class="card-img-top" alt="Fissure in Sandstone" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make
+                                            up the
+                                            bulk
+                                            of the card's content.</p>
+                                        <a href="#!" class="btn btn-primary">Button</a>
+                                        <hr>
+                                        <div class="center">
+                                            <a href="#" class="card-link">Delete</a>
+                                            <a href="updateNote.html" class="card-link">Update</a>
+                                        </div>
+
+                                        <div class="card-footer text-muted">2 days ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+
+            </div>
+
+    </section>
+    <div id="footerContainer"></div>
+    <%- include('../includes/footer.ejs') %>
+
+</body>
+
+</html>

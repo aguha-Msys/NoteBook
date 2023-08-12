@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <div id="headContainer"></div>
+        <%- include('../includes/head.ejs') %>
+        <!-- <script>
+        // Fetch the navbar.html content and insert it into the container
+        fetch('head.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('headContainer').innerHTML = html;
+            });
+    </script> -->
+
+
+    </head>
+
+    <body>
+        <div id="navbarContainer"></div>
+        <%- include('../includes/navbar.ejs') %>
+        <!-- <script>
+        // Fetch the navbar.html content and insert it into the container
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('navbarContainer').innerHTML = html;
+            });
+    </script> -->
+
+        <section class="vh-100">
+            <div class="container-fluid h-custom">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-md-9 col-lg-6 col-xl-5">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                             class="img-fluid" alt="Sample image">
+                    </div>
+                    <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                        <form action="/signup" method="post">
+
+                            <div class="divider d-flex align-items-center my-4">
+                                <p class="text-center fw-bold mx-3 mb-0">Registration</p>
+                            </div>
+
+                            <!-- Name input -->
+                            <div class="form-outline mb-4">
+                                <input type="text" id="registerName" name="name" class="form-control" />
+                                <label class="form-label" for="registerName">Name</label>
+                            </div>
+                            <hr>
+                            <!-- Username input -->
+                            <!-- <div class="form-outline mb-4">
+                                <input type="text" id="registerUsername" class="form-control" />
+                                <label class="form-label" for="registerUsername">Username</label>
+                            </div> -->
+                            <hr>
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <input type="email" id="registerEmail" name="email" class="form-control" />
+                                <label class="form-label" for="registerEmail">Email</label>
+                            </div>
+                            <hr>
+                            <!-- Password input -->
+                            <div class="form-outline mb-4">
+                                <input type="password" id="registerPassword" name="password" class="form-control" />
+                                <label class="form-label" for="registerPassword">Password</label>
+                            </div>
+                            <hr>
+                            <!-- Repeat Password input -->
+                            <!-- <div class="form-outline mb-4">
+                                <input type="password" id="registerRepeatPassword" class="form-control" />
+                                <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+                            </div> -->
+                            <hr>
+                            <!-- Checkbox -->
+                            <!-- <div class="form-check d-flex justify-content-center mb-4">
+                                <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
+                                       aria-describedby="registerCheckHelpText" />
+                                <label class="form-check-label" for="registerCheck">
+                                    I have read and agree to the terms
+                                </label>
+                            </div> -->
+
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary btn-block mb-3">Registration</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div id="footerContainer"></div>
+        <%- include('../includes/footer.ejs') %>
+        <!-- <script>
+            // Fetch the navbar.html content and insert it into the container
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('footerContainer').innerHTML = html;
+                });
+        </script> -->
+
+    </body>
+
+</html>
