@@ -1,6 +1,6 @@
 <div id="headContainer"></div>
 <%- include('../includes/head.ejs') %>
-<!-- <script>
+    <!-- <script>
         // Fetch the navbar.html content and insert it into the container
         fetch('head.html')
             .then(response => response.text())
@@ -10,12 +10,12 @@
     </script> -->
 
 
-</head>
+    </head>
 
-<body>
-    <div id="navbarContainer"></div>
-    <%- include('../includes/navbar.ejs') %>
-    <!-- <script>
+    <body>
+        <div id="navbarContainer"></div>
+        <%- include('../includes/navbar.ejs') %>
+            <!-- <script>
         // Fetch the navbar.html content and insert it into the container
         fetch('navbar.html')
             .then(response => response.text())
@@ -24,63 +24,72 @@
             });
     </script> -->
 
-    <section class="vh-100">
-        <div class="container-fluid h-custom">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-md-9 col-lg-6 col-xl-5">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-                         class="img-fluid" alt="Sample image">
-                </div>
-                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                    <form action="/add" method="post">
-
-                        <div class="divider d-flex align-items-center my-4">
-                            <p class="text-center fw-bold mx-3 mb-0">ADD NEW NOTE</p>
+            <section class="vw-100">
+                <div class="container-fluid h-custom">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col-md-9 col-lg-6 col-xl-5">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                                class="img-fluid" alt="Sample image">
                         </div>
+                        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                            <form action="/add" method="post">
 
-                        <!-- Name input -->
-                        <!-- <div class="form-outline mb-4">
+                                <div class="divider d-flex align-items-center my-4">
+                                    <p class="text-center fw-bold mx-3 mb-0">ADD NEW NOTE</p>
+                                </div>
+
+                                <!-- Name input -->
+                                <!-- <div class="form-outline mb-4">
                             <input type="text" id="" class="form-control" />
                             <label class="form-label" for="">Note ID</label>
                         </div> -->
-                        <hr>
-                        <!-- Username input -->
-                        <div class="form-outline mb-4">
-                            <input type="text" id="" class="form-control" name="noteTitle" />
-                            <label class="form-label" for="">Note Title</label>
-                        </div>
-                        <hr>
-                        <!-- Email input -->
-                        <div class="form-group">
-                            <input type="text" id="" class="form-control" name="noteSubTitle" />
-                            <label class="form-label" for="">Note Subtitle</label>
-                        </div>
-                        <hr>
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Note Body</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                      name="noteBody"></textarea>
-                        </div>
-                        <hr>
-                        <!-- <div class="form-group">
+                                <hr>
+                                <!-- Username input -->
+                                <div class="form-group mb-4">
+                                    <label class="form-label" for="">Note Title</label>
+                                    <input type="text" id="" class="form-control" name="noteTitle" placeholder="Note Title" />
+                                </div>
+                                <hr>
+                                <!-- Email input -->
+                                <div class="form-group">
+                                    <label class="form-label" for="">Note Subtitle</label>
+                                    <input type="text" id="" class="form-control" name="noteSubTitle" placeholder="Note Subtitle" />
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Note Body</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                        name="noteBody" placeholder="Note Body"></textarea>
+                                </div>
+                                <hr>
+                                <!-- <div class="form-group">
                             <label for="exampleFormControlFile1">Example file input</label>
                             <input type="file" class="form-control-file" id="exampleFormControlFile1">
                         </div> -->
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button class="btn btn-primary btn-block mb-3" value="Reset"
+                                            type="reset">Reset</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <!-- Submit button -->
+                                        <button type="submit" class="btn btn-primary btn-block mb-3">Add Note</button>
+                                    </div>
+                                </div>
 
 
-                        <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-block mb-3">Add Note</button>
-                    </form>
 
+                            </form>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-    </section>
+            </section>
 
-    <div id="footerContainer"></div>
-    <%- include('../includes/footer.ejs') %>
-    <!-- <script>
+            <div id="footerContainer"></div>
+            <%- include('../includes/footer.ejs') %>
+                <!-- <script>
         // Fetch the navbar.html content and insert it into the container
         fetch('footer.html')
             .then(response => response.text())
@@ -89,6 +98,6 @@
             });
     </script> -->
 
-</body>
+    </body>
 
-</html>
+    </html>

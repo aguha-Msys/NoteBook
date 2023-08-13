@@ -17,16 +17,25 @@ main {
   /* Add other styles for your page content here */
 }
 
-footer {
-  background-color: #f1f1f1;
-  padding: 20px;
-  text-align: center;
-  /* position: fixed; */
-  bottom: 0;
-  /* Position the footer at the bottom of the viewport */
-  left: 0;
-  width: 100%;
+#note_sub {
+  color: #99A3A4;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+#star{
+  position: absolute;
+  right: 0;
+  top: 50%; /* Optionally center vertically */
+  transform: translateY(-50%); /* Optionally center vertically */
+  background-color: blue;
+  /* color: white; */
+  padding: 10px;
+}
+
+/* footer {
+  background-color: black;
+  flex-shrink: 0;
+  position: fixed;
+ } */
 
 .divider:after,
 .divider:before {

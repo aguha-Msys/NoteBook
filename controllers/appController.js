@@ -33,7 +33,13 @@ exports.getSearch = async (req, res, next) => {
         res.status(500).json({ error: error.message });
       });
   } else {
-    const searchRegex = new RegExp(searchBox, "i"); // Create a case-insensitive regular expression
+    const escapedSearchBox = searchBox.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const searchRegex = new RegExp(escapedSearchBox, "i");
+
+    
+     // Create a case-insensitive regular expression
+
+    // console.log("searchkey-->"+searchRegex);
     await Note.find({
       $or: [
         { noteTitle: searchRegex },
@@ -81,7 +87,7 @@ exports.postAddNotes = async (req, res, next) => {
 exports.getEditNotes = async (req, res, next) => {
   const user = req.user;
   const noteId = req.params.noteId;
-  console.log(noteId);
+  // console.log(noteId);
   try {
     await Note.findOne({ noteId }).then((note) => {
       res.render("app/updateNote", {
@@ -116,10 +122,13 @@ exports.postEditNotes = async (req, res, next) => {
 };
 
 exports.deleteNotes = async (req, res, next) => {
+  // console.log("entrydel");
   const noteId = req.params.noteId;
+  // console.log("noteId="+noteId);
   try {
     const deleteNote = await Note.findOneAndDelete({ noteId });
     res.redirect("/");
+    // console.log("exitdel");
   } catch (error) {
     console.log(error);
   }
@@ -145,20 +154,23 @@ exports.getStarred = (req, res, next) => {
 };
 
 exports.postStarSetTrue = async (req, res, next) => {
-  const noteId = req.body.params;
+  console.log("entrystart");
+  const noteId = req.params.noteId;
+  // console.log("star_noteId="+noteId);
   try {
     const UpdateNote = await Note.findOneAndUpdate(
       { noteId },
       { $set: { starred: "true" } }
     );
     res.redirect("/");
+    // console.log("exitstar");
   } catch (error) {
     console.log(error);
   }
 };
 
 exports.postStarSetFalse = async (req, res, next) => {
-  const noteId = req.body.params;
+  const noteId = req.params.noteId;
   try {
     const UpdateNote = await Note.findOneAndUpdate(
       { noteId },

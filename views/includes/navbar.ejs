@@ -8,15 +8,22 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="nav-link" aria-current="page" href="/"><i class="fa-solid fa-house"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/add"><i class="fa-solid fa-plus"></i> Add Note</a>
                 </li>
                 <% if(user){ %>
                 <li class="nav-item">
                     <a class="nav-link" href="/starred">Starred</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/">Account</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link disabled" aria-disabled="true"><%= user.email %></a>
                 </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
                 </li>
@@ -51,3 +58,14 @@
     <% } %>
 
 </nav>
+
+
+<!--Star button remove and icon move to right of the card
+
+active menutab highlighted
+add profile edit buttton and respective page
+take cxare about card height and width due to more description and less description
+trim timestamp
+make welocme page more cool
+
+-->

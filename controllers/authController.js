@@ -24,7 +24,7 @@ exports.postLogin = async (req, res, next) => {
       { id: user._id, name: user.name, email: user.email },
       "MsysTechnologies",
       {
-        expiresIn: 300, // 1 minute, for testing purposes
+        expiresIn: 300*10, // 1 minute, for testing purposes
       }
     );
 
