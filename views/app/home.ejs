@@ -1,6 +1,6 @@
 <div id="headContainer"></div>
 <%- include('../includes/head.ejs') %>
-<!-- <script>
+    <!-- <script>
         // Fetch the navbar.html content and insert it into the container
         fetch('head.html')
             .then(response => response.text())
@@ -9,12 +9,12 @@
             });
     </script> -->
 
-</head>
+    </head>
 
-<body>
-    <div id="navbarContainer"></div>
-    <%- include('../includes/navbar.ejs') %>
-    <!-- <script>
+    <body>
+        <div id="navbarContainer"></div>
+        <%- include('../includes/navbar.ejs') %>
+            <!-- <script>
             // Fetch the navbar.html content and insert it into the container
             fetch('navbar.html')
                 .then(response => response.text())
@@ -24,50 +24,68 @@
         </script> -->
 
 
-    <section>
-        <h1>Welcome, <%= user.name  %>!</h1>
-        <h4>Take a Note <a href="/add"><button type="button" class="btn btn-primary">Add</button></a>
-        </h4>
+            <section class="vw-100">
+                <h1>Welcome, <%= user.name %>!</h1>
+                <!-- <h4>Take a Note <a href="/add"><button type="button" class="btn btn-primary">Add</button></a> -->
+                </h4>
 
 
-        <div class="container justify-content-center">
-            <hr>
-            <div class="row">
-                <% notes.forEach((note) => {  %>
-                <div class="col-12 col-md-4 col-lg-3 col-sm-6">
-                    <div class="card">
-                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top"
-                             alt="Fissure in Sandstone" />
-                        <div class="card-body">
-                            <p class="card-title"><%= note.noteId %>
-                                <% if(note.starred){ %>
-                                <i class="fa-solid fa-star"></i>
-                                <% }else{ %>
-                                <i class="fa-regular fa-star"></i>
-                                <% } %>
-                            </p>
+                <div class="container justify-content-center">
+                    <hr>
+                    <div class="row">
+                        <% notes.forEach((note)=> { %>
+                            <div class="col-12 col-md-4 col-lg-3 col-sm-6">
+                                <div class="card">
+                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp"
+                                        class="card-img-top" alt="Fissure in Sandstone" />
+                                    <div class="card-body">
+                                        <p class="card-title">
+                                            <%= note.noteId %>
+                                                <% if(note.starred){ %>
+                                                    <span><i class="fa-solid fa-star"></i>
+                                                        <% }else{ %>
+                                                            <i class="fa-regular fa-star"></i>
+                                                            <% } %>
+                                                    </span>
+                                                    
+                                        </p>
 
-                            <h5 class="card-title"><%= note.noteTitle %></h5>
+                                        <h3 class="card-title">
+                                            <%= note.noteTitle %>
+                                        </h3>
 
-                            <h5 class="card-title"><%= note.noteSubTitle %></h5>
-                            <p class="card-text"><%= note.noteBody %></p>
-                            <% if(note.starred){ %>
-                            <a href="/unStar/<%= note.noteId %>" class="btn btn-primary">Unstar</a>
-                            <% } else {%>
-                            <a href="/starred/<%= note.noteId %>" class="btn btn-primary">Star</a>
-                            <% } %>
-                            <hr>
-                            <div class="center">
-                                <a href="/delete/<%= note.noteId %>" class="card-link">Delete</a>
-                                <a href="edit/<%= note.noteId %>" class="card-link">Update</a>
+                                        <h6 class="" id="note_sub">
+                                            <%= note.noteSubTitle %>
+                                        </h6>
+                                        <p class="card-text">
+                                            <%= note.noteBody %>
+                                        </p>
+                                        <% if(note.starred){ %>
+                                            <a href="/unStar/<%= note.noteId %>" class="btn btn-primary">Unstar</a>
+                                            <% } else {%>
+                                                <a href="/starred/<%= note.noteId %>" class="btn btn-primary">Star</a>
+                                                <% } %>
+                                                    <hr>
+
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <button class="btn btn-danger btn-block mb-1"><a style="text-decoration: none; color: inherit;" href="/delete/<%= note.noteId %>"
+                                                                class="card-link"><i class="fa fa-trash" aria-hidden="true"></i></a></button>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button class="btn btn-primary btn-block mb-1"><a style="text-decoration: none; color: inherit;" href="edit/<%= note.noteId %>" class="card-link"><i class="fas fa-edit"></i></a></button>
+                                                        </div>
+                                                    </div>
+                                                   
+
+                                                    <div class="card-footer text-muted">
+                                                        <%= note.iAt %>
+                                                    </div>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div class="card-footer text-muted"><%= note.iAt %></div>
-                        </div>
-                    </div>
-                </div>
-                <% }) %>
-                <!-- <div class=" col-12 col-md-4 col-lg-3 col-sm-6">
+                            <% }) %>
+                                <!-- <div class=" col-12 col-md-4 col-lg-3 col-sm-6">
                                     <div class="card">
                                         <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp"
                                              class="card-img-top" alt="Fissure in Sandstone" />
@@ -157,12 +175,14 @@
                         </div> -->
 
 
+                    </div>
+
+            </section>
+            <div id="footerContainer">
+                <%- include('../includes/footer.ejs') %>
             </div>
 
-    </section>
-    <div id="footerContainer"></div>
-    <%- include('../includes/footer.ejs') %>
 
-</body>
+    </body>
 
-</html>
+    </html>

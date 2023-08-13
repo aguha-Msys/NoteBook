@@ -12,7 +12,7 @@ router
   .post("/edit/:noteId?", auth, appController.postEditNotes)
   .get("/delete/:noteId?", auth, appController.deleteNotes)
   .get("/starred", auth, appController.getStarred)
-  .post("/starred/:noteId?", auth, appController.postStarSetTrue)
-  .post("/unStar/:noteId?", auth, appController.postStarSetFalse);
+  .get("/starred/:noteId?", auth, appController.postStarSetTrue)
+  .get("/unStar/:noteId?", auth, appController.postStarSetFalse);
 
 module.exports = router;
